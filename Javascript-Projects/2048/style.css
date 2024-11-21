@@ -1,0 +1,64 @@
+*,*::after, *::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --cell-size: 100px;
+  --mark-size: calc(var(--cell-size) * .9);
+  --back-color: rgba(0, 136, 204, .3);
+}
+
+body {
+  overflow: hidden;
+}
+
+.container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.board {
+  display: grid;
+  padding: 20px 20px;
+  border-radius: 20px;
+  background: grey;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(4, auto);
+}
+
+.cell {
+  background: lightgrey;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.backcolor {
+  background-color: rgba(0, 136, 204, .2);
+}
+
+.text-style {
+  position: relative;
+  color: white;
+  font-size: 90px;
+}
+
+.block {
+  background: #eed8be;
+  position: relative;
+  color: white;
+  font-size: 90px;
+}

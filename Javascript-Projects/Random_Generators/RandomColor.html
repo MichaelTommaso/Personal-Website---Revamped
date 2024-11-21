@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Shizuru&display=swap" rel="stylesheet">
+    <link rel= "stylesheet" href= "Style2.css" />
+    <title>Random Number Generator</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function submit () {
+      let var1 = Math.round(Math.random() * 255)
+      let var2 = Math.round(Math.random() * 255)
+      let var3 = Math.round(Math.random() * 255)
+      let str = var1 + ',' + var2 + ',' + var3
+      console.log(str)
+      document.getElementById('num').innerHTML = str
+      document.documentElement.style.setProperty('--var1', var1)
+      document.documentElement.style.setProperty('--var2', var2)
+      document.documentElement.style.setProperty('--var3', var3)
+    }
+  </script>
+
+  <div class="style">
+    <div><h1>Random Color Generator</h1></div>
+    <div><button onclick="submit()" class="button">Generate Random Color</button></div>
+    <div class="BaG">
+      <span class="num">BackgroundColor(RGB): </span>
+      <span class= "num" id="num">255,255,255</span>
+    </div>
+  </div>
+  <div class="RcG">
+    <a class="link" href="Random5LetterWord.html">Random 5 Letter Word Generator</a>
+    <a class="link "href="RandomNumber.html">Random Number Generator</a>
+  </div>
+</body>
+</html>

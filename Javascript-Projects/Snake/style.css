@@ -1,0 +1,97 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: black;
+}
+
+#game-board {
+  background-color: rgb(0, 180, 50);
+  width: 100vmin;
+  height: 100vmin;
+  display: grid;
+  grid-template-rows: repeat(21, 1fr);
+  grid-template-columns: repeat(21, 1fr);
+}
+
+.snake {
+  background-color: hsl(200, 100%, 50%);
+  border: .25vmin solid black;
+}
+
+.food {
+  background-color: hsl(50, 100%, 50%);
+  border: .25vmin solid black;
+  border-radius: 50%;
+}
+
+.winning-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0,0,0,.8);
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 5rem;
+  flex-direction: column;
+}
+
+.winning-message button {
+  font-size: 3rem;
+  background-color: white;
+  border: 1px solid black;
+  padding: .25em .5em;
+  margin: .5em;
+  cursor: pointer;
+}
+
+.winning-message button:hover {
+  background-color: black;
+  border-color: white;
+  color: white;
+}
+
+.winning-message.show {
+  display: flex;
+}
+
+.pause-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0,0,0,.7);
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 5rem;
+  flex-direction: column;
+}
+
+.pause-message button {
+  font-size: 3rem;
+  background-color: white;
+  border: 1px solid black;
+  padding: .25em .5em;
+  margin: .5em;
+  cursor: pointer;
+}
+
+.pause-message button:hover {
+  background-color: black;
+  border-color: white;
+  color: white;
+}
+
+.pause-message.show {
+  display: flex;
+}

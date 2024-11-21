@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Shizuru&display=swap" rel="stylesheet">
+    <link rel= "stylesheet" href= "Stylesheet.css" />
+    <title>Random Number Generator</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function random() {
+      var min = parseInt(document.getElementById("quantity1").value)
+      var max = parseInt(document.getElementById("quantity2").value) - min
+      var randomNum = Math.round(Math.random() * max) + min
+      document.getElementById("num").innerHTML = randomNum
+    }
+  </script>
+
+  <div class="style">
+    <div><h1>Random Number Generator</h1></div>
+    <div><button class="button" onclick="random()">Generate Random Number</button></div>
+    <div><h1 class="num" id="num"> 0 </h1></div>
+    <div>
+      <span>
+        <label for="quantity1">Range:</label>
+        <input type="number" id="quantity1" name="quantity1" value="1"/>
+        <label for="quantity2">to:</label>
+        <input type="number" id="quantity2" name="quantity2" value="10" />
+    </div>
+  </div>
+  <div class="RcG">
+    <a class="link" href="Random5LetterWord.html">Random 5 Letter Word Generator</a>
+    <a class="link" href="RandomColor.html">Random Color Generator</a>
+  </div>
+</body>
+</html>

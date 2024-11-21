@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link href="style.css" rel="stylesheet" />
+  <script type="module" src="app.js" defer></script>
+  <title>Snake</title>
+</head>
+<body>
+  <div id="game-board"></div>
+  <div class="winning-message" id="winningMessage">
+    <div data-winning-message-text id="winningMessageText">You Win!</div>
+    <div>
+      <span data-winning-food-text id="winningMessageFood">Food Collected: 0</span>
+      <span data-winning-snake-text id="winningMessageSnake">Snake Length: 0</span>
+    </div>
+    <button id="Restart-button">Restart</button>
+  </div>
+  <div class="pause-message" id="pauseMessage">
+    <div data-pause-message-text id="pauseMessageText">Game Paused!</div>
+    <div>
+      <span data-pause-food-text id="winningMessageFood">Food Collected: 0</span>
+      <span data-pause-snake-text id="winningMessageSnake">Snake Length: 0</span>
+    </div>
+    <button id="Unpause-button">Unpause</button>
+  </div>
+</body>
+</html>

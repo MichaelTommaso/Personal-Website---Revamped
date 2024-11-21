@@ -1,0 +1,849 @@
+*,*::before,*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+#wrapper {
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    perspective: 10px;
+    scroll-behavior: smooth;
+}
+
+/* utilities */
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+
+.sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.reveal {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 500ms ease-in-out;
+    z-index: 1;
+}
+
+.reveal.active {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.reveal-sideways {
+    position: relative;
+    opacity: 0;
+    transition: all 500ms ease-in-out;
+    z-index: 1;
+}
+
+.x {
+    transform: translateX(-250px);
+}
+
+.y {
+    transform: translateX(250px);
+}
+
+.reveal-sideways.active {
+    transform: translateX(0px);
+    opacity: 1;
+}
+
+/* navbar */
+.primary-header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    position: absolute;
+    color: white;
+    padding-left: 1rem;
+    margin: 0;
+    font-family: 'Rampart One', cursive;
+    font-size: 4rem;
+    z-index: 1;
+}
+
+.primary-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: hsl(0 0% 0% / 0.5);
+    --gap: 2em;
+    position: fixed;
+    z-index: 1000;
+    inset: 0 0 0 75%;
+    flex-direction: column;
+    padding: min(15vh, 10rem) 2em;
+    transform: translateX(100%);
+    transition: transform 350ms ease-out;
+}
+
+@supports (backdrop-filter: blur(1rem)) {
+    .primary-nav {
+        background: hsl(0 0% 0% / 0.2);
+        backdrop-filter: blur(1rem);
+    }
+}
+
+.primary-nav[data-visible="true"] {
+    transform: translateX(0%);
+}
+
+.mobile-nav-toggle {
+    display: block;
+    position: fixed;
+    width: 3.2rem;
+    padding: 5px;
+    margin: 0;
+    border: 0;
+    border-radius: 10px;
+    top: 1rem;
+    right: 2rem;
+    background: hsl(0 0% 0% / 0.2);
+    z-index: 9999;
+    box-shadow: 2px 2px 2px 2px rgba(255,255,255,0.1);
+    cursor: pointer;
+}
+
+i {
+    color: white;
+}
+
+.primary-nav li {
+    text-align: center;
+    padding: 10px;
+    transition: transform 350ms;
+}
+
+.primary-nav li:hover {
+    transform: translateY(-10px);
+}
+
+.primary-nav li > a[data-text="true"] {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* home */
+.parallax-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: -1;
+    font-family: 'Rubik', sans-serif;
+}
+
+#parallax-img1 {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+    transform: translateZ(-15px) scale(2.6);
+}
+
+#parallax-title {
+    font-size: 4em;
+    text-shadow: 2px 2px rgba(0,0,0,0.3);
+    position: absolute;
+    color: #fff;
+}
+
+#parallax-subtitle {
+    font-size: 1.5em;
+    text-shadow: 2px 2px rgba(0,0,0,0.3);
+    position: absolute;
+    top: 53%;
+    color: #fff;
+}
+
+#arrow-down {
+    position: absolute;
+    top: 90%;
+    z-index: 1;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+/* About me */
+#about {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: var(--gap, 2em);
+    color: white;
+    padding: 2rem;
+    background-image: url("/images/navy-blue-background.png"); 
+    background-size: cover;
+    font-family: 'Nunito Sans', sans-serif;
+    text-shadow: 2px 2px rgba(0,0,0,0.1);
+}
+
+.about-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.about-description { 
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.checklist {
+    font-size: 1.2rem;
+}
+
+.checklist > li {
+    padding: 5px 0;
+}
+
+/* Projects */
+#projects {
+    height: auto;
+    background: rgb(251, 244, 244);
+    padding: 2rem;
+    font-family: 'Nunito Sans', sans-serif;
+    text-shadow: 2px 2px rgba(0,0,0,0.1);
+    color: black;
+}
+
+.project-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.project-subtitle { 
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.project-footer {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.project-scroll {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-areas: 
+    'pos-0 left pos-1 right pos-2';
+    justify-items: center;
+    align-items: center;
+}
+
+.pos-0 {grid-area: pos-0;}
+.pos-1 {grid-area: pos-1;}
+.pos-2 {grid-area: pos-2;}
+
+.scroll-image {
+    margin:0;
+    padding: 0;
+    pointer-events: none;
+}
+
+.scroll-image.pos-1 {
+    pointer-events: all;
+}
+
+.scroll-image > img {
+    width: 20rem;
+    height: 15rem;
+    opacity: 0.4;
+    border: 2px solid black;
+    border-radius: 5px;
+    transition: 250ms all;
+}
+
+.scroll-image.pos-1 > img {
+    width: 22rem;
+    height: 17rem;
+    opacity: 1;
+}
+
+.scroll-image.pos-1 > img:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+}
+
+#arrow-left {
+    grid-area: left;
+    transition: all 250ms;
+}
+
+#arrow-right {
+    grid-area: right;
+    transition: all 250ms;
+}
+
+#arrow-left:hover,
+#arrow-right:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.sj-website {
+    display: flex;
+    background-color: #3B87B7;
+    border: 2px solid black;
+    border-radius: 10px;
+    height: auto;
+    padding: 10px;
+    margin-bottom: 4em;
+    margin-top: 4em;
+    text-decoration: none;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    transition: all 300ms ease-in-out;
+}
+
+.sj-website:hover {
+    cursor: pointer;
+    transform: translate(-5px,-5px);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+}
+
+
+.theology-description {
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding-right: 10px;
+    margin: 0;
+    padding-bottom: 10px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}
+
+.theology-image {
+    width: auto;
+    height: 40vh;
+}
+
+/* Contacts */
+#contact {
+    height: 100vh;
+    background: skyblue;
+    padding: 2rem;
+    font-family: 'Nunito Sans', sans-serif;
+    text-shadow: 2px 2px rgba(0,0,0,0.1);
+    color: white;
+}
+
+.contact-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+.contact-body {
+    display: grid;
+    grid-template-columns: 48% 4% 48%;
+    gap: var(--gap, 2em);
+}
+
+.contact-subtitle { 
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: white;
+}
+
+.email-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: fit-content;
+}
+
+form {
+    width: fit-content;
+}
+
+.form-email-sent {
+    animation: email-sent 500ms forwards;
+}
+
+.form-hidden {
+    display: none;
+}
+
+.form-active {
+    position: absolute;
+    animation: email-sent 500ms reverse;
+}
+
+.form-active p {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.reset-form-button {
+    margin-top: 0.5em;
+    padding: 0.5rem;
+    border: 1px solid white;
+    background: none;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 400;
+    font-family: 'Nunito Sans', sans-serif;
+    text-shadow: 2px 2px rgba(0,0,0,0.1);
+    transition: all 250ms;
+}
+
+.reset-form-button:hover {
+    background: hsl(0 0% 100% / 0.2);
+    transform: translateY(-10px);
+}
+
+@keyframes email-sent {
+    0% {
+        transform: scale(100%);
+        opacity: 1;
+    }
+
+    10% {
+        transform: scale(90%);
+        opacity: .90;
+    }
+
+    20% {
+        transform: scale(80%);
+        opacity: .80;
+    }
+
+    30% {
+        transform: scale(70%);
+        opacity: .70;
+    }
+
+    40% {
+        transform: scale(60%);
+        opacity: .60;
+    }
+
+    50% {
+        transform: scale(50%);
+        opacity: .50;
+    }
+
+    60% {
+        transform: scale(40%);
+        opacity: .40;
+    }
+
+    70% {
+        transform: scale(30%);
+        opacity: .30;
+    }
+
+    80% {
+        transform: scale(20%);
+        opacity: .20;
+    }
+
+    90% {
+        transform: scale(10%);
+        opacity: .10;
+    }
+
+    100% {
+        transform: scale(0%);
+        opacity: 0;
+    }
+}
+
+.email-group input,
+textarea {
+    margin-top: 2em;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+}
+
+#email,
+#name {
+    height: 2.5em;
+    width: 35em;
+    padding-left: 5px;
+}
+
+#message {
+    height: 10em;
+    width: 35em;
+    padding-top: 5px;
+    padding-left: 5px;
+    resize: none;
+}
+
+#submit {
+    height: 2.5em;
+    width: 35em;
+    border: none;
+    box-shadow: 8px 4px 4px 8px 4px 4px rgba(0,0,0,0.3);
+    color: black;
+    font-weight: 600;
+}
+
+#submit:hover {
+    background-color: lightblue;
+}
+
+#check {
+    height: 2.5em;
+    width: 2.5em;
+    text-align: center;
+}
+
+.contact-split {
+    height: 100%;
+    width: fit-content;
+    text-align: center;
+}
+
+.linebreak {
+    position: relative;
+    height: 100%;
+    width: 3px;
+    border: 3px dashed lightgrey;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.contact-or {
+    position: relative;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 5px;
+    background-color: skyblue;
+    color: white;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.socials-group {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.socials-list {
+    list-style: none;
+    color: white;
+}
+
+.socials-list li {
+    padding: 1em;
+    text-align: center;
+    transition: transform 350ms;
+}
+
+.socials-list li:hover {
+    transform: translateY(-10px);
+}
+
+.socials-list li > a[data-text="true"],
+.socials-list li > p { 
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+/* Different sized screen display options */
+
+/* small sized screens */
+@media (max-width: 35em) {
+    .primary-nav {
+        inset: 0 0 0 50%;
+        --gap: 1em;
+    }
+
+    #parallax-subtitle {
+        top: 58%;
+    }
+
+    #about {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-title {
+        text-align: center;
+    }
+
+    #projects {
+        height: auto;
+        flex-direction: column;
+    }
+
+    .project-scroll {
+        grid-template-columns: auto auto auto;
+        grid-template-areas: 
+            'left pos-1 right';
+    }
+
+    .scroll-image.pos-0,
+    .scroll-image.pos-2 {
+        display: none;
+    }
+
+    .scroll-image.pos-1 > img {
+        width: 60vw;
+        height: 11.25rem;
+    }
+
+    .sj-website {
+        display: inline-block
+    }
+
+    .theology-image {
+        width: 100%;
+        height: auto;
+    }
+
+    #contact {
+        height: auto;
+    }
+
+    .contact-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .email-group {
+        text-align: center;
+    }
+
+    #email,
+    #name,
+    #message,
+    #submit {
+        width: 70vw;
+        margin: 2em 2em 0 2em;
+        color: black;
+    }
+
+    #message {
+        height: 15em;
+    }
+
+    .contact-split {
+        height: auto;
+        width: 100%;
+        text-align: center;
+    }
+
+    .linebreak {
+        height: 3px;
+        width: 100%;
+    }
+
+    .contact-or {
+        width: fit-content;
+        margin: 0;
+    }
+
+    .socials-group {
+        width: auto;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .socials-list {
+        padding: 0;
+    }
+
+    .socials-list li {
+        margin-top: 1em;
+        text-align: center;
+        transition: transform 350ms;
+    }
+}
+
+/* medium sized screens */
+@media (min-width: 35em) and (max-width: 55em) {
+    .primary-nav {
+        inset: 0 0 0 60%;
+    }
+
+    #about {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-title {
+        text-align: center;
+    }
+
+    #projects {
+        height: auto;
+    }
+
+    .project-scroll {
+        grid-template-columns: auto auto auto;
+        grid-template-areas: 
+            'left pos-1 right';
+    }
+
+    .scroll-image.pos-0,
+    .scroll-image.pos-2 {
+        display: none;
+    }
+
+    .scroll-image.pos-1 > img {
+        width: 60vw;
+        height: 20rem;
+    }
+
+    .sj-website {
+        display: inline-block
+    }
+
+    .theology-image {
+        width: 100%;
+        height: auto;
+    }
+
+    #contact {
+        height: auto;
+    }
+
+    .contact-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .email-group {
+        text-align: center;
+        width: auto;
+    }
+
+    #email,
+    #name,
+    #message,
+    #submit {
+        width: 80vw;
+        margin: 2em 2em 0 2em;
+        display: block;
+    }
+
+    #message {
+        height: 15em;
+    }
+
+    .contact-split {
+        height: auto;
+        width: 100%;
+        text-align: center;
+    }
+
+    .linebreak {
+        height: 3px;
+        width: 100%;
+    }
+
+    .contact-or {
+        width: fit-content;
+        margin: 0;
+    }
+
+    .socials-group {
+        width: auto;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .socials-list {
+        padding: 0;
+    }
+
+    .socials-list li {
+        margin-top: 1em;
+        text-align: center;
+        transition: transform 350ms;
+    }
+}
+
+/* Very large screens */
+@media (min-width: 75em) {
+    .primary-nav {
+        inset: 0 0 0 85%;
+    }
+
+    .about-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+    }
+    
+    .about-description { 
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: 400;
+    }
+    
+    .checklist {
+        font-size: 1.8rem;
+    }
+    
+    .checklist > li {
+        padding: 15px 0;
+    }
+
+    #email,
+    #name,
+    #message,
+    #submit {
+        width: 40vw;
+        margin: 2em 2em 0 2em;
+    }
+}

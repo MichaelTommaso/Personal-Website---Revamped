@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Nunito+Sans:wght@200&family=Rampart+One&family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/33c8eb31aa.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+    <script src="email.js" defer></script>
+    <title>ME</title>
+</head>
+<body>
+    <header class="primary-header">
+        <button class="mobile-nav-toggle" aria-controls="primary-nav" aria-expanded="false"><i class="fa-solid fa-bars fa-3x" id="icon-menu-button"></i><span class="sr-only">Menu</span></button>
+       
+        <nav>
+            <ul id="primary-nav" data-visible="false" class="primary-nav flex">
+                <li class="nav-li">
+                    <a href="#home" ><i class="fa-solid fa-house fa-4x"></i></a>
+                    <br>
+                    <a href="#home" data-text="true">Home</a>
+                </li>
+                <li class="nav-li">
+                    <a href="#about"><i class="fa-solid fa-user fa-4x"></i></a>
+                    <br>
+                    <a href="#about" data-text="true">About</a>
+                </li>
+                <li class="nav-li">
+                    <a href="#projects"><i class="fa-solid fa-book-open fa-4x"></i></a>
+                    <br>
+                    <a href="#projects" data-text="true">Projects</a>
+                </li>
+                <li class="nav-li">
+                    <a href="#contact"><i class="fa-solid fa-envelopes-bulk fa-4x"></i></a>
+                    <br>
+                    <a href="#contact" data-text="true">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div id="wrapper">
+        <h1 class="logo">MT</h1>
+        <div id="home" class="parallax-container">
+            <img id="parallax-img1" src="images/parralax-img1.gif">
+            <h1 id="parallax-title">Hey, I'm Mike!</h1>
+            <h3 id="parallax-subtitle">I am a Web Developer...</h3>
+            <a href="#about" class="no-margin">
+                <i id="arrow-down" class="fa-solid fa-chevron-down fa-3x fa-bounce"></i>
+            </a>
+        </div>
+        <div id="about">
+            <div class="reveal">
+                <h1 class="about-title">Who Am I?</h1>
+                <p class="about-description">
+                    Greetings! My name is Michael Tommaso, and I’m proud to have been born and raised in the vibrant city of Brooklyn, New York. From an early age, I discovered a deep passion for STEM and engineering, which has driven much of my academic and personal growth. Although I’ve been coding for just about four years, I've developed proficiency in several programming languages, including C#, Python, HTML, CSS, JavaScript, SQL, PHP, and Java. This may seem like a brief period, but I've been dedicated to learning and improving, working on a variety of exciting projects that you can explore in the Projects section of this website.
+
+                    One of my favorite accomplishments so far is this very website, which I designed and built with care and precision. I hope you find it both functional and engaging. I’m always eager to receive feedback and ideas, so if you have any constructive criticism or suggestions for improvement, please don’t hesitate to reach out via email or direct message—details can be found in the Contact section. Thank you for visiting, and I look forward to connecting!
+                </p>
+            </div>
+        </div>
+        <div id="projects">
+            <h1 class="project-title reveal">Projects!</h1>
+
+            <h3 class="project-subtitle reveal">Random Generators</h3>
+            <div id="project-scroll-1" class="project-scroll reveal">
+                <a class="scroll-image pos-0" href="Javascript-Projects/Random_Generators/Random5LetterWord.html">
+                    <img id="Random-5-Letter-Word"  src="images/random-5-letter-word-generator.png"/>
+                </a>
+                <div id="arrow-left" class="fa-solid fa-chevron-left fa-4x"></div>
+                <a class="scroll-image pos-1" href="Javascript-Projects/Random_Generators/RandomColor.html">
+                    <img id="Random-Color"  src="images/random-color-generator.png"/>
+                </a>
+                <div id="arrow-right" class="fa-solid fa-chevron-right fa-4x"></div>
+                <a class="scroll-image pos-2" href="Javascript-Projects/Random_Generators/RandomNumber.html">
+                    <img id="Random-Number"  src="images/random-number-generator.png"/>
+                </a>
+            </div>
+
+            <h3 class="project-subtitle reveal">Websites I Designed for School</h3>
+            <div id="project-scroll-2" class="project-scroll reveal">
+                <a class="scroll-image pos-0" href="Javascript-Projects/Punnet Square/Punnet Square.html">
+                    <img id="Random-5-Letter-Word"  src="images/punnet-square.png"/>
+                </a>
+                <div id="arrow-left" class="fa-solid fa-chevron-left fa-4x"></div>
+                <a class="scroll-image pos-1" href="Javascript-Projects/ChiSquare/index.html">
+                    <img id="Random-Color"  src="images/chi-square.png"/>
+                </a>
+                <div id="arrow-right" class="fa-solid fa-chevron-right fa-4x"></div>
+                <a class="scroll-image pos-2" href="Javascript-Projects/Beat Maker/index.html">
+                    <img id="Random-Number"  src="images/metronome.png"/>
+                </a>
+            </div>
+            <a class="sj-website reveal" href="Javascript-Projects/Theology Final Project/index.html">
+                <div>
+                    <p class="theology-description">
+                        This website that I have designed is designated to spreading awareness to the 
+                        difficulty and hypocrisy that an ex-convict experiences, while entering back into 
+                        society. By posting it directly onto my school's website, I spread awareness to 
+                        this topic that I deam very important. I also made QR codes and posted them 
+                        everywhere around my school for people looking from the outside in to understand
+                        the injustices. Lastly, I uploaded this website into multiple facebook groups and
+                        helped ex-convicts access the job market and find jobs best set for them.
+                    </p>
+                </div>
+                <img class="theology-image" src="images/Opera Snapshot_2024-10-22_181155_index.html.png"/>
+            </a>
+            <h3 class="project-footer">You can find the source code and Python files on my Github Page found in the Contacts section.</h3>
+        </div>
+        <div id="contact">
+            <h1 class="contact-title reveal">Let's Get In Touch!</h1>
+            <div class="contact-body">
+                <div class="email-group reveal-sideways x">
+                    <h3 class="contact-subtitle">Email Me!</h3>
+                    <form class="contact-form" id="form-email" method="post" action="https://formspree.io/f/xdojndzk">
+                        <input type="text" id="name" name="name" placeholder="Name..." required><br>
+                        <input type="email" id="email" name="email" placeholder="Email..." required><br>
+                        <textarea id="message" name="message" placeholder="Write a Message..." required></textarea><br>
+                        <input type="submit" name="submit" id="submit" value="Send The Email!">
+                    </form>
+                    <div class="form-hidden" id="form-sent">
+                        <i class="fa-regular fa-circle-check fa-5x fa-bounce" style="--fa-bounce-rebound: 0;"></i>
+                        <p>Email Was Sent!</p>
+                        <button class="reset-form-button">Send Another Email!</button>
+                    </div>
+                </div>
+                <div class="contact-split reveal">
+                    <div class="linebreak"></div>
+                    <p class="contact-or">OR</p>
+                </div>
+                <div class="socials-group reveal-sideways y">
+                    <h3 class="contact-subtitle">Check Out My Socials!</h3>
+                    <ul class="socials-list">
+                        <li>
+                            <a href="https:www.linkedin.com/in/michael-tommaso-74580b317"><i class="fa-brands fa-linkedin fa-4x"></i></a>
+                            <a href="https:www.linkedin.com/in/michael-tommaso-74580b317" data-text="true">LinkedIn</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/MichaelTommaso"><i class="fa-brands fa-github fa-4x"></i></a>
+                            <a href="https://github.com/MichaelTommaso" data-text="true">Github</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-at fa-4x"></i>
+                            <p>MichaelJTommaso@gmail.com</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
